@@ -29,7 +29,7 @@ const Banner = () => {
         </div>
       </div>
       <div className="banner-right">
-        <img src="images/NFT.jpg" />{" "}
+        <img src="images/NFT.jpg" />
       </div>
     </div>
   );

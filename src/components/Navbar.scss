@@ -8,6 +8,10 @@ nav {
   border-radius: var(--round);
   position: sticky;
   top: 10px;
+
+  a.active {
+    text-decoration: underline;
+  }
 }
 .iconBox {
   transform: scale(0.9);

@@ -2,9 +2,11 @@ import React, { useRef } from "react";
 import "./Navbar.scss";
 import { TbBrandReactNative } from "react-icons/tb";
 import { GiHamburgerMenu } from "react-icons/gi";
-
+import { NavLink } from "react-router-dom";
 const Navbar = () => {
   const mobileMenuRef = useRef(null);
+
+  console.log(mobileMenuRef, "mobileMenuRef");
 
   function handleHamburgerPress() {
     mobileMenuRef.current.classList.toggle("hide");
@@ -12,32 +14,37 @@ const Navbar = () => {
   return (
     <>
       <nav>
-        <a href="">
+        <NavLink
+          to={"/"}
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : "not-active"
+          }
+        >
           <div className={"iconBox"}>
             <TbBrandReactNative color="white" fontSize={30} />
           </div>
-        </a>
+        </NavLink>
 
         <ul className={"menu"}>
           <li className={"menuItem"}>
-            <a href="" className={"menuItemText"}>
+            <NavLink to={"/"} className={"menuItemText"}>
               Home
-            </a>
+            </NavLink>
           </li>
           <li className={"menuItem"}>
-            <a href="" className={"menuItemText"}>
-              Some
-            </a>
+            <NavLink to={"/wishlist"} className={"menuItemText"}>
+              Wishlist
+            </NavLink>
           </li>
           <li className={"menuItem"}>
-            <a href="" className={"menuItemText"}>
-              Blog
-            </a>
+            <NavLink to={"/cart"} className={"menuItemText"}>
+              Cart
+            </NavLink>
           </li>
           <li className={"menuItem"}>
-            <a href="" className={"menuItemText"}>
+            <NavLink to={"/about"} className={"menuItemText"}>
               About
-            </a>
+            </NavLink>
           </li>
 
           <button className={"menuBtn"}>
@@ -52,6 +59,8 @@ const Navbar = () => {
 
         <ul ref={mobileMenuRef} className={"mobileMenu hide"}>
           <button onClick={handleHamburgerPress}>close</button>
+
+          <span>asdas</span>
         </ul>
       </nav>
     </>

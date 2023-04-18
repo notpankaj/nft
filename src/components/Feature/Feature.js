@@ -23,9 +23,9 @@ const Feature = () => {
     );
     categoryListRef.current.addEventListener("mousemove", dragging);
     return () => {
-      categoryListRef.current.removeEventListener("mousemove", dragging);
-      categoryListRef.current.addEventListener("mousedown", null);
-      categoryListRef.current.addEventListener("mouseup", null);
+      categoryListRef.current?.removeEventListener("mousemove", dragging);
+      categoryListRef.current?.removeEventListener("mousedown", null);
+      categoryListRef.current?.removeEventListener("mouseup", null);
     };
   }, []);
 

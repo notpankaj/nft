@@ -16,6 +16,7 @@
       font-size: 1rem;
       white-space: nowrap;
       overflow: hidden;
+      color: var(--text-dark);
     }
     .by {
       white-space: nowrap;
@@ -23,6 +24,7 @@
       font-size: 0.6rem;
       opacity: 0.5;
       margin-bottom: 5px;
+      color: var(--text-dark);
     }
 
     img {
@@ -34,6 +36,7 @@
       pointer-events: none;
       user-select: none;
       object-fit: cover;
+      
     }
 
     section {
@@ -52,10 +55,12 @@
       span.title {
         font-size: 0.6rem;
         opacity: 0.5;
+        color: var(--text-dark);
       }
       span.price {
         font-weight: bold;
         font-size: 0.9rem;
+        color: var(--text-dark);
       }
     }
   }
