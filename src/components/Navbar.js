@@ -3,9 +3,11 @@ import "./Navbar.scss";
 import { TbBrandReactNative } from "react-icons/tb";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
+import { selectCartItems } from "../redux/feature/cartSlice";
+import { useSelector } from "react-redux";
 const Navbar = () => {
   const mobileMenuRef = useRef(null);
-
+  const cartItems = useSelector(selectCartItems);
   console.log(mobileMenuRef, "mobileMenuRef");
 
   function handleHamburgerPress() {
@@ -31,14 +33,13 @@ const Navbar = () => {
               Home
             </NavLink>
           </li>
-          <li className={"menuItem"}>
-            <NavLink to={"/wishlist"} className={"menuItemText"}>
-              Wishlist
-            </NavLink>
-          </li>
+
           <li className={"menuItem"}>
             <NavLink to={"/cart"} className={"menuItemText"}>
               Cart
+              {cartItems.length !== 0 ? (
+                <span className="badge">{cartItems.length}</span>
+              ) : null}
             </NavLink>
           </li>
           <li className={"menuItem"}>
@@ -60,7 +61,34 @@ const Navbar = () => {
         <ul ref={mobileMenuRef} className={"mobileMenu hide"}>
           <button onClick={handleHamburgerPress}>close</button>
 
-          <span>asdas</span>
+          <NavLink
+            to={"/"}
+            style={{
+              background: "white",
+              margin: "10px",
+            }}
+          >
+            Home
+          </NavLink>
+
+          <NavLink
+            to={"/cart"}
+            style={{
+              background: "white",
+              margin: "10px",
+            }}
+          >
+            Cart
+          </NavLink>
+          <NavLink
+            to={"/about"}
+            style={{
+              background: "white",
+              margin: "10px",
+            }}
+          >
+            About
+          </NavLink>
         </ul>
       </nav>
     </>

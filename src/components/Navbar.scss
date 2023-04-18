@@ -30,7 +30,7 @@ nav {
   align-items: center;
 }
 .menuItem {
-  font-size: 1rem;
+  font-size: 1.3rem;
 }
 .menuItemText {
   color: var(--text-dark);
@@ -61,6 +61,7 @@ nav {
 
 .mobileMenu {
   display: none;
+  z-index: 10;
   width: 300px;
   height: 100vh;
   background-color: var(--black);
@@ -86,4 +87,11 @@ nav {
   .mobileMenu {
     display: block;
   }
+}
+
+
+.badge {
+  position: absolute;
+  top: 10px;
+  padding: 5px;
 }

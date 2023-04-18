@@ -1,0 +1,105 @@
+.cart__wrapper {
+  margin: 0px 2%;
+  /* display: flex; */
+}
+
+.cart__header {
+  display: flex;
+  justify-content: space-around;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+.cart__header span {
+  flex: 1;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.cart__item {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
+.cart__item div {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart__item span {
+  font-size: 1.2rem;
+  font-style: italic;
+}
+.sec-1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.sec-1 img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--round);
+}
+
+.sec-1 .title {
+  font-size: 1.2rem;
+  font-style: normal;
+}
+.sec-1 .des {
+  font-size: 0.9rem;
+  font-style: normal;
+  opacity: 0.8;
+}
+
+.checkout {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout .sec-1 {
+  margin: 10px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.checkout .sec-1 span {
+  font-size: 1.2rem;
+}
+
+.checkout .sec-x {
+  margin: 10px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.checkout .sec-x span {
+  font-size: 1.2rem;
+}
+
+.checkout .sec-2 {
+  display: flex;
+  flex-direction: column;
+}
+.checkout .sec-2 span {
+  font-size: 1.1rem;
+  margin: 2px 0;
+}
+.checkout .sec-2 input {
+  font-size: 1.2rem;
+  padding: 10px;
+}
+
+button#checkout {
+  margin-top: 20px;
+  height: 40px;
+  border: none;
+  border-radius: var(--round);
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background-color: rgb(220, 34, 34);
+}
