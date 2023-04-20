@@ -1,0 +1,20 @@
+.about__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.about__wrapper h4 {
+  font-size: 2rem;
+}
+.about__wrapper h1 {
+  font-size: 4rem;
+}
+.about__wrapper span {
+  font-size: 1.5rem;
+}
+.about__wrapper p {
+  text-align: center;
+  font-size: 1.1rem;
+  padding: 20px;
+}

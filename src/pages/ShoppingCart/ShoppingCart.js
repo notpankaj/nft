@@ -1,17 +1,17 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addToCart,
   removeToCart,
   selectCartItems,
-} from "../redux/feature/cartSlice";
+} from "../../redux/feature/cartSlice";
 import "./ShoppingCart.css";
 import { BiMinus, BiPlus } from "react-icons/bi";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import Confetti from "react-confetti";
+import Navbar from "../../components/Navbar";
 
 const w = window.innerWidth;
 const h = window.innerHeight;

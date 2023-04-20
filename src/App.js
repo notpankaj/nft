@@ -5,12 +5,12 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./App.css";
-import AboutPage from "./pages/AboutPage";
-import HomePage from "./pages/HomePage";
+import { store } from "./redux/store";
+import { Provider } from "react-redux";
 import ProductPage from "./pages/ProductPage/ProductPage";
-import ShoppingCart from "./pages/ShoppingCart";
-import { store } from './redux/store'
-import { Provider } from 'react-redux'
+import AboutPage from "./pages/AboutPage/AboutPage";
+import HomePage from "./pages/HomePage/HomePage";
+import ShoppingCart from "./pages/ShoppingCart/ShoppingCart";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,14 +24,13 @@ const router = createBrowserRouter(
 );
 function App() {
   return (
-    
     <>
-    <Provider store={store}>
-      <div className="backdrop"></div>
-      <div className="App">
-        <RouterProvider router={router} />
-      </div>
-    </Provider>
+      <Provider store={store}>
+        <div className="backdrop"></div>
+        <div className="App">
+          <RouterProvider router={router} />
+        </div>
+      </Provider>
     </>
   );
 }
