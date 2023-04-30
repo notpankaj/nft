@@ -8,47 +8,50 @@ import {
 import "./ShoppingCart.css";
 import { BiMinus, BiPlus } from "react-icons/bi";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 import Confetti from "react-confetti";
 import Navbar from "../../components/Navbar";
-
-const w = window.innerWidth;
-const h = window.innerHeight;
+import { useNavigate } from "react-router-dom";
+import Loader from "../../components/Loader/Loader";
 
 const ShoppingCart = () => {
+  const [name, setName] = React.useState("");
+  const [address, setAddress] = React.useState("");
+  const [phone, setPhone] = React.useState("");
+  const [loading, setloading] = React.useState(false);
   const cartItems = useSelector(selectCartItems);
-
-  const [confettiVisible, setIsConfettiVisible] = React.useState(false);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleMinusClick = (item) => {
     dispatch(addToCart(item));
   };
-  const notify = () => {
-    setIsConfettiVisible(true);
-    setTimeout(() => {
-      setIsConfettiVisible(false);
-    }, 5000);
-    toast("ORDER PLACED SUCCESSFULLY! 👌");
-  };
+
   const handlePlusClick = (item) => {
     dispatch(removeToCart(item));
   };
+
+  function handleSubmit() {
+    if (!name) {
+      alert("Please enter Shipping Name!");
+      return;
+    }
+    if (!phone) {
+      alert("Please enter Shipping Phone!");
+      return;
+    }
+    if (!address) {
+      alert("Please enter Shipping Address!");
+      return;
+    }
+    setloading(true);
+    setTimeout(() => {
+      setloading(false);
+      navigate("/thankyou");
+    }, 1200);
+  }
+
   return (
     <>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-      {confettiVisible ? <Confetti width={w} height={h} /> : null}
       <Navbar />
       {cartItems.length ? (
         <section className="cart__wrapper">
@@ -99,22 +102,46 @@ const ShoppingCart = () => {
             </div>
             <div className="sec-2">
               <span>SHIPPING NAME</span>
-              <input type="text" />
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
             </div>
             <div className="sec-2">
               <span>SHIPPING PHONE NO.</span>
-              <input type="text" />
+              <input
+                type="text"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
             </div>
             <div className="sec-2">
               <span>SHIPPING ADDRESS</span>
-              <input type="text" />
+              <input
+                type="text"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+              />
             </div>
             <div className="sec-x">
               <span>TOTAL COST</span>
               <span>$213.123</span>
             </div>
-            <button id="checkout" onClick={notify}>
-              CHECKOUT
+            <button id="checkout" onClick={handleSubmit}>
+              {loading ? (
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Loader />
+                </div>
+              ) : (
+                "CHECKOUT"
+              )}
             </button>
           </div>
         </section>

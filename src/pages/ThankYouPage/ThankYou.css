@@ -1,0 +1,57 @@
+.ty-conatiner {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.ty-box {
+  height: 500px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border-radius: 5px;
+  padding: 50px;
+  box-shadow: 10px 10px 41px 3px rgba(0, 0, 0, 0.58);
+  -webkit-box-shadow: 10px 10px 41px 3px rgba(0, 0, 0, 0.58);
+  -moz-box-shadow: 10px 10px 41px 3px rgba(0, 0, 0, 0.58);
+}
+.order-id {
+  font-size: 1.5rem;
+}
+.ty-text {
+  font-size: 4rem;
+  font-weight: bold;
+}
+.ty-des {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  max-width: 80%;
+}
+.sub-box {
+  display: flex;
+  -webkit-box-shadow: 13px 18px 80px -12px rgba(0, 0, 0, 0.62);
+  -moz-box-shadow: 13px 18px 80px -12px rgba(0, 0, 0, 0.62);
+  box-shadow: 13px 18px 80px -12px rgba(0, 0, 0, 0.62);
+}
+
+.sub-box input {
+  flex: 1;
+  padding: 5px;
+  border: none;
+  outline: none;
+}
+.sub-box button {
+  flex: 1;
+  padding: 20px 20px;
+  /* background-color: #92e3a9; */
+  background-color: #dc2222;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+}

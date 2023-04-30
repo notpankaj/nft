@@ -48,9 +48,9 @@ const Navbar = () => {
             </NavLink>
           </li>
 
-          <button className={"menuBtn"}>
+          {/* <button className={"menuBtn"}>
             <span className={"menuBtnText"}>Connect Wallet</span>
-          </button>
+          </button> */}
         </ul>
 
         {/* mobile */}
@@ -63,8 +63,10 @@ const Navbar = () => {
 
           <NavLink
             to={"/"}
+            className={"mLink"}
             style={{
               background: "white",
+              padding: 10,
               margin: "10px",
             }}
           >
@@ -72,19 +74,23 @@ const Navbar = () => {
           </NavLink>
 
           <NavLink
+            className={"mLink"}
             to={"/cart"}
             style={{
               background: "white",
               margin: "10px",
+              padding: 10,
             }}
           >
             Cart
           </NavLink>
           <NavLink
+            className={"mLink"}
             to={"/about"}
             style={{
               background: "white",
               margin: "10px",
+              padding: 10,
             }}
           >
             About

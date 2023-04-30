@@ -76,6 +76,10 @@ nav {
   opacity: 0;
 }
 
+.mobileMenu {
+  flex-direction: column;
+}
+
 /* mobile */
 @media screen and (max-width: 480px) {
   .menu {
@@ -85,10 +89,9 @@ nav {
     display: block;
   }
   .mobileMenu {
-    display: block;
+    display: flex;
   }
 }
-
 
 .badge {
   position: absolute;
