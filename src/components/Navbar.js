@@ -4,7 +4,8 @@ import { TbBrandReactNative } from "react-icons/tb";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
 import { selectCartItems } from "../redux/feature/cartSlice";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../redux/feature/authSlice";
 const Navbar = () => {
   const mobileMenuRef = useRef(null);
   const cartItems = useSelector(selectCartItems);
@@ -13,6 +14,13 @@ const Navbar = () => {
   function handleHamburgerPress() {
     mobileMenuRef.current.classList.toggle("hide");
   }
+
+  const dispatch = useDispatch();
+
+  function handleLogout() {
+    dispatch(logout());
+  }
+
   return (
     <>
       <nav>
@@ -38,7 +46,14 @@ const Navbar = () => {
             <NavLink to={"/cart"} className={"menuItemText"}>
               Cart
               {cartItems.length !== 0 ? (
-                <span className="badge">{cartItems.length}</span>
+                <span
+                  className="badge"
+                  style={{
+                    color: "black",
+                  }}
+                >
+                  {cartItems.length}
+                </span>
               ) : null}
             </NavLink>
           </li>
@@ -47,10 +62,17 @@ const Navbar = () => {
               About
             </NavLink>
           </li>
+          {/* <li className={"menuItem"}>
+            <a href="#" className={"menuItemText"}>
+              Logout
+            </a>
+          </li> */}
 
-          {/* <button className={"menuBtn"}>
-            <span className={"menuBtnText"}>Connect Wallet</span>
-          </button> */}
+          <button className={"menuBtn"}>
+            <span onClick={handleLogout} className={"menuBtnText"}>
+              Logout
+            </span>
+          </button>
         </ul>
 
         {/* mobile */}

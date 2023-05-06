@@ -13,27 +13,13 @@ export const SOCKET_URL = "wss://amberclubpro.com:8001";
 
 // SIGNUP -> POST
 export const api_signup = async (payload) => {
-  const uri = `${BASE_URL}/users/create`;
+  const uri = `${BASE_URL}/users/createUser`;
   const response = await fetch(uri, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(payload),
-  }).then((res) => res.json());
-  return response;
-};
-
-// USER DELETE ACCOUNT
-export const api_deleteUserAccount = async (payload) => {
-  const { userId, token } = payload;
-  const uri = `${BASE_URL}/users/deleteAccount/${userId}`;
-  const response = await fetch(uri, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-      "x-access-token": token,
-    },
   }).then((res) => res.json());
   return response;
 };
