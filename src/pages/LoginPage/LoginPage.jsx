@@ -11,7 +11,64 @@ const LoginPage = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const dispatch = useDispatch();
+
+  const fakeLogin = async () => {
+    if (!email) {
+      alert("enter email");
+      return;
+    }
+    if (!password) {
+      alert("enter password");
+      return;
+    }
+
+    setLoading(true);
+
+    const res = {
+      isSuccess: true,
+      statusCode: 200,
+      data: {
+        _id: "641ab85786cad3aa7ca3f6ca",
+        email: "admin@gmail.com",
+        socialSecurityNumber: 0,
+        sex: "",
+        meritalStatus: "",
+        role: "user",
+        location: {
+          type: "Point",
+          coordinates: [null, null],
+        },
+        token:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDFhYjg1Nzg2Y2FkM2FhN2NhM2Y2Y2EiLCJpYXQiOjE2ODMzODk3MjUsImV4cCI6MTY4MzQyOTMyNX0.U_J184aDy7uOL8vp1xLNby41aZ0TJHOcFhhB_OEDc7w",
+        is_activated: true,
+        image: "",
+        created_at: "2023-03-22T08:12:07.900Z",
+        updated_at: "2023-03-22T08:12:07.900Z",
+      },
+      message: "Login successfuly",
+    };
+
+    setTimeout(() => {
+      if (email === "admin@gmail.com" && password === "12345678") {
+        if (res.isSuccess) {
+          alert(res?.message);
+          dispatch(loginAction(res?.data));
+        } else {
+          throw new Error(res?.error || "something went wrong!");
+        }
+      } else {
+        alert("email and password not matched!!!");
+      }
+      setLoading(false);
+    }, 1000);
+  };
+
   const login = async () => {
+    if (false) {
+      fakeLogin();
+      return;
+    }
+
     if (!email) {
       alert("enter email");
       return;
